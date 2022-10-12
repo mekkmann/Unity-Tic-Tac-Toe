@@ -1,2 +1,12 @@
 # Unity-Tic-Tac-Toe
-A repo for my Tic-Tac-Toe game in Unity
+A repo for my Tic-Tac-Toe game in Unity.
+
+## About this repo
+I guess this repo could be called "the start of my GameDev-journey", however, that'd be a false statement as I've already dabbled in GameDev. 
+
+BUT, if I choose to see it for what it is; my first time publicly sharing anything GameDev-related I've done. 
+
+Then, yes, this is the start of my journey!
+
+## Link to itch.io ***(a simple way to find and share indie games online for free)***
+Try the [game]()!
