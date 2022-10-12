@@ -8,5 +8,5 @@ BUT, if I choose to see it for what it is; my first time publicly sharing anythi
 
 Then, yes, this is the start of my journey!
 
-## Link to itch.io ***(a simple way to find and share indie games online for free)***
-Try the [game]()!
+## Play the game on itch.io ***(a simple way to find and share indie games online for free)***
+[Let's play :D]()
