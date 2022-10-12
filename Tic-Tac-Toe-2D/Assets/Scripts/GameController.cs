@@ -20,6 +20,9 @@ public class GameController : MonoBehaviour
     public int oScore; // holds player o total score for the session
     public TMP_Text xPlayerScoreText; // holds text for player x score
     public TMP_Text oPlayerScoreText; // holds text for player o score
+    public Button xPlayersButton;
+    public Button oPlayersButton;
+    public bool weGotAWinner = false;
 
 
     // Start is called before the first frame updates
@@ -30,6 +33,7 @@ public class GameController : MonoBehaviour
 
     private void GameSetup()
     {
+        weGotAWinner = false;
         playerTurn = 0;
         turnCount = 0;
         turnIcons[0].SetActive(true);
@@ -53,6 +57,8 @@ public class GameController : MonoBehaviour
 
     public void ChooseField(int chosenField)
     {
+        xPlayersButton.interactable = false;
+        oPlayersButton.interactable = false;
         tictactoeGridSpaces[chosenField].image.sprite = playerIcons[playerTurn];
         tictactoeGridSpaces[chosenField].interactable = false;
 
@@ -63,6 +69,11 @@ public class GameController : MonoBehaviour
         if(turnCount > 4)
         {
             WinnerCheck();
+        }
+
+        if(turnCount == 9 && !weGotAWinner)
+        {
+            DrawDisplay();
         }
 
         ChangePlayerTurn();
@@ -103,7 +114,7 @@ public class GameController : MonoBehaviour
             if(solutions[i] == 3 * (playerTurn + 1))
             {
                 WinnerDisplay(i);
-                return;
+                weGotAWinner = true;
             }
         }
     }
@@ -126,6 +137,12 @@ public class GameController : MonoBehaviour
         winningLines[solutionIndex].SetActive(true);
     }
 
+    private void DrawDisplay()
+    {
+        winnerText.text = "It's a draw!";
+        winnerPanel.SetActive(true);
+    }
+
     public void Rematch()
     {
         GameSetup();
@@ -134,6 +151,8 @@ public class GameController : MonoBehaviour
             winningLines[i].SetActive(false);
         }
         winnerPanel.SetActive(false);
+        xPlayersButton.interactable = true;
+        oPlayersButton.interactable = true;
     }
 
     public void Restart()
@@ -143,5 +162,21 @@ public class GameController : MonoBehaviour
         oScore = 0;
         xPlayerScoreText.text = "0";
         oPlayerScoreText.text = "0";
+    }
+
+    public void SwitchPlayer(int whichPlayer)
+    {
+        if(whichPlayer == 0)
+        {
+            playerTurn = 0;
+            turnIcons[0].SetActive(true);
+            turnIcons[1].SetActive(false);
+        }
+        if (whichPlayer == 1)
+        {
+            playerTurn = 1;
+            turnIcons[1].SetActive(true);
+            turnIcons[0].SetActive(false);
+        }
     }
 }
