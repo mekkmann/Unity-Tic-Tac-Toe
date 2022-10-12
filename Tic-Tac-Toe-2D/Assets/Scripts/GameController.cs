@@ -15,7 +15,11 @@ public class GameController : MonoBehaviour
     public int[] markedSpaces; // ID's which space was marked by who
     public TMP_Text winnerText; // holds the text component of the winner text
     public GameObject[] winningLines; // holds all different lines for showing when someone wins
-    public GameObject winnerPanel;
+    public GameObject winnerPanel; // holds the winner panel
+    public int xScore; // holds player x total score for the session
+    public int oScore; // holds player o total score for the session
+    public TMP_Text xPlayerScoreText; // holds text for player x score
+    public TMP_Text oPlayerScoreText; // holds text for player o score
 
 
     // Start is called before the first frame updates
@@ -106,9 +110,38 @@ public class GameController : MonoBehaviour
 
     private void WinnerDisplay(int solutionIndex)
     {
-        if (playerTurn == 0) winnerText.text = "Player X wins!";
-        if (playerTurn == 1) winnerText.text = "Player O wins!";
+        if (playerTurn == 0)
+        {
+            xScore++;
+            xPlayerScoreText.text = xScore.ToString();
+            winnerText.text = "Player X wins!";
+        }
+        if (playerTurn == 1) 
+        { 
+            oScore++;
+            oPlayerScoreText.text = oScore.ToString();
+            winnerText.text = "Player O wins!";
+        }
         winnerPanel.SetActive(true);
         winningLines[solutionIndex].SetActive(true);
+    }
+
+    public void Rematch()
+    {
+        GameSetup();
+        for(int i = 0; i < winningLines.Length; i++)
+        {
+            winningLines[i].SetActive(false);
+        }
+        winnerPanel.SetActive(false);
+    }
+
+    public void Restart()
+    {
+        Rematch();
+        xScore = 0;
+        oScore = 0;
+        xPlayerScoreText.text = "0";
+        oPlayerScoreText.text = "0";
     }
 }
