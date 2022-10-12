@@ -1,6 +1,8 @@
 # Unity-Tic-Tac-Toe
 A repo for my Tic-Tac-Toe game in Unity.
 
+Made entirely in the UI-system Unity provides because I want to expand my knowledge and understanding of it.
+
 ## About this repo
 I guess this repo could be called "the start of my GameDev-journey", however, that'd be a false statement as I've already dabbled in GameDev. 
 
