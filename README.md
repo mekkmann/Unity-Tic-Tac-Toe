@@ -11,4 +11,4 @@ BUT, if I choose to see it for what it is; my first time publicly sharing anythi
 Then, yes, this is the start of my journey!
 
 ## Play the game on itch.io ***(a simple way to find and share indie games online for free)***
-[Let's play :D]()
+[Let's play :D](https://mekkmann.itch.io/tic-tac-toe-twist)
