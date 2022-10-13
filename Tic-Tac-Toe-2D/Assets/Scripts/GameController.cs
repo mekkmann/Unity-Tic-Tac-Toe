@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public int playerTurn; // 0 = X and 1 = O
     public int turnCount; // counts the number of turns played
     public GameObject[] turnIcons; // holds both turnIcons and displays who's turn it is
-    public Sprite[] playerIcons; // 0 = X icon and 1 = O icon
+    public Sprite[] playerIcons; // 0 = X-icon and 1 = O-icon
     public Button[] tictactoeGridSpaces; // playable spaces on our grid
     public int[] markedSpaces; // ID's which space was marked by who
     public TMP_Text winnerText; // holds the text component of the winner text
@@ -20,9 +20,10 @@ public class GameController : MonoBehaviour
     public int oScore; // holds player o total score for the session
     public TMP_Text xPlayerScoreText; // holds text for player x score
     public TMP_Text oPlayerScoreText; // holds text for player o score
-    public Button xPlayersButton;
-    public Button oPlayersButton;
-    public bool weGotAWinner = false;
+    public Button xPlayersButton; // button for changing whom goes first
+    public Button oPlayersButton; // button for changing whom goes first
+    public bool weGotAWinner = false; // keeps track of if there's a winner
+    public Image catImage; // holds pic of cat for draw result
 
 
     // Start is called before the first frame updates
@@ -139,7 +140,8 @@ public class GameController : MonoBehaviour
 
     private void DrawDisplay()
     {
-        winnerText.text = "It's a draw!";
+        winnerText.text = "Cat's game!";
+        catImage.gameObject.SetActive(true);
         winnerPanel.SetActive(true);
     }
 
@@ -151,6 +153,7 @@ public class GameController : MonoBehaviour
             winningLines[i].SetActive(false);
         }
         winnerPanel.SetActive(false);
+        catImage.gameObject.SetActive(false);
         xPlayersButton.interactable = true;
         oPlayersButton.interactable = true;
     }
