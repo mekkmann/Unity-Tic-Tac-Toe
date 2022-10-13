@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     public Button xPlayersButton; // button for changing whom goes first
     public Button oPlayersButton; // button for changing whom goes first
     public bool weGotAWinner = false; // keeps track of if there's a winner
-    public Image catImage; // holds pic of cat for draw result
+    public Image catImage; // holds pic of cat for if there's a draw
 
 
     // Start is called before the first frame updates
@@ -48,12 +48,6 @@ public class GameController : MonoBehaviour
         {
             markedSpaces[i] = -100;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void ChooseField(int chosenField)
